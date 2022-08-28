@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:movie_catalog/movie_list_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -56,7 +57,10 @@ class MainPage extends StatelessWidget {
                   child: ElevatedButton(
                     child: const Text('Get Started'),
                     onPressed: () {
-                      // Aksi ketika button diklik
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const MovieListPage()),
+                      );
                     },
                   ),
                 ),
