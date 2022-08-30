@@ -53,26 +53,6 @@ var movieList = [
     ],
   ),
   Movies(
-    title: "I Am Legend",
-    released: "14 Dec 2007",
-    runtime: "101 min",
-    genre: "Drama, Horror, Sci-Fi",
-    director: "Francis Lawrence",
-    writer: "Mark Protosevich (screenplay), Akiva Goldsman (screenplay), Richard Matheson (novel), John William Corrington, Joyce Hooper Corrington",
-    actors: "Will Smith, Alice Braga, Charlie Tahan, Salli Richardson-Whitfield",
-    plot: "Years after a plague kills most of humanity and transforms the rest into monsters, the sole survivor in New York City struggles valiantly to find a cure.",
-    language: "English",
-    awards: "9 wins & 21 nominations.",
-    poster: "https://m.media-amazon.com/images/M/MV5BYTE1ZTBlYzgtNmMyNS00ZTQ2LWE4NjEtZjUxNDJkNTg2MzlhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
-    imdbRating: "7.2",
-    images: [
-      "https://images-na.ssl-images-amazon.com/images/M/MV5BMTI0NTI4NjE3NV5BMl5BanBnXkFtZTYwMDA0Nzc4._V1_.jpg",
-      "https://images-na.ssl-images-amazon.com/images/M/MV5BMTIwMDg2MDU4M15BMl5BanBnXkFtZTYwMTA0Nzc4._V1_.jpg",
-      "https://images-na.ssl-images-amazon.com/images/M/MV5BMTc5MDM1OTU5OV5BMl5BanBnXkFtZTYwMjA0Nzc4._V1_.jpg",
-      "https://images-na.ssl-images-amazon.com/images/M/MV5BMTA0MTI2NjMzMzFeQTJeQWpwZ15BbWU2MDMwNDc3OA@@._V1_.jpg"
-    ],
-  ),
-  Movies(
     title: "300",
     released: "09 Mar 2007",
     runtime: "117 min",

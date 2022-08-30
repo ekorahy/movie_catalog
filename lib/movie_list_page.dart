@@ -13,12 +13,14 @@ class MovieListPage extends StatelessWidget {
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constrains) {
-          if (constrains.maxWidth <= 600) {
+          if (constrains.maxWidth <= 450) {
+            return MovieList();
+          } else if (constrains.maxWidth <= 650) {
             return Moviegrid(gridCount: 2);
-          } else if (constrains.maxWidth <= 1200) {
+          } else if (constrains.maxWidth <= 900) {
+            return Moviegrid(gridCount: 3);
+          } else{
             return Moviegrid(gridCount: 4);
-          } else {
-            return Moviegrid(gridCount: 6);
           }
         },
       ),
@@ -37,7 +39,7 @@ class MovieList extends StatelessWidget {
         return InkWell(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return MovieDetail();
+              return MovieDetail(movie: movie);
             }));
           },
           child: Card(
@@ -51,19 +53,76 @@ class MovieList extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Text(
                           movie.title,
-                          style: const TextStyle(fontSize: 16.0),
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Quicksand',
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
-                        Text(movie.genre),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: Icon(
+                                Icons.category,
+                                size: 10,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Text(
+                              movie.genre,
+                              style: TextStyle(
+                                fontFamily: 'Quicksand',
+                                fontSize: 10,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: Icon(
+                                Icons.star,
+                                size: 10,
+                                color: Colors.yellow,
+                              ),
+                            ),
+                            Text(
+                              movie.imdbRating,
+                              style: TextStyle(
+                                fontFamily: 'Quicksand',
+                                fontSize: 10,
+                                color: Colors.yellow,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(2),
+                          child: Text(
+                            'Plot : ${movie.plot}',
+                            style: TextStyle(
+                              fontFamily: 'Quicksand',
+                              fontSize: 10,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -86,7 +145,7 @@ class Moviegrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.all(24),
       child: GridView.count(
         crossAxisCount: gridCount,
         crossAxisSpacing: 16,
@@ -95,7 +154,7 @@ class Moviegrid extends StatelessWidget {
           return InkWell(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return MovieDetail();
+              return MovieDetail(movie: movie);
             }));
             },
             child: Card(
@@ -110,19 +169,61 @@ class Moviegrid extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
                     child: Text(
                       movie.title,
-                      style: const TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold
+                      style: TextStyle(
+                        fontFamily: 'Quicksand',
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
-                    child: Text(
-                      movie.genre,
+                    padding: const EdgeInsets.only(left: 8, bottom: 8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Icon(
+                              Icons.category_outlined,
+                              size: 10,
+                              color: Colors.grey,
+                            ),
+                            Text(
+                              movie.genre,
+                              style: TextStyle(
+                                fontFamily: 'Quicksand',
+                                fontSize: 10,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Icon(
+                              Icons.star,
+                              size: 10,
+                              color: Colors.yellow,
+                            ),
+                            Text(
+                              movie.imdbRating,
+                              style: TextStyle(
+                                fontFamily: 'Quicksand',
+                                fontSize: 10,
+                                color: Colors.yellow,
+                              ),
+                            ),
+                          ],
+                        ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

@@ -27,7 +27,8 @@ class MainPage extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 30.0,
                       fontFamily: 'Quicksand',
-                      color: Colors.blue,
+                      color: Color(0xFFE87A00),
+                      fontWeight: FontWeight.bold,
                     ),
                     child: AnimatedTextKit(
                       animatedTexts: [
@@ -47,21 +48,34 @@ class MainPage extends StatelessWidget {
                     'Provide the best movie references for your weekend.',
                     style: TextStyle(
                       color: Colors.grey,
+                      fontSize: 12,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(
                   height: 15,
                 ),
                 Container(
-                  child: ElevatedButton(
-                    child: const Text('Get Started'),
+                  padding: const EdgeInsets.all(8),
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Color(0xFFE87A00),
+                    ),
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const MovieListPage()),
                       );
                     },
+                    child: const Text(
+                      'Get Started',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontFamily: 'Quicksand',
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
               ],
